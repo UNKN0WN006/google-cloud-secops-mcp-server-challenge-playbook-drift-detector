@@ -1,0 +1,11 @@
+
+steps:
+  - name: check_login_attempts
+    action: query_logs
+    params:
+      source: auth
+      threshold: 5
+  - name: notify_team
+    action: send_alert
+    params:
+      channel: security
