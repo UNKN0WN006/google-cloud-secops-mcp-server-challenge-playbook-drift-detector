@@ -1,42 +1,73 @@
-# Automated Playbook Drift Detection & Remediation with SecOps MCP Server
+# MCP Playbook Drift Detector & Dashboard
 
 ## Overview
 
-This project leverages the SecOps MCP server to automatically detect when a security automation playbook drifts from the approved baseline. By continuously monitoring for changes, it ensures your security automations remain current and effective, reducing manual review and minimizing the risk of outdated responses.
+This project demonstrates a real-world security automation scenario using the Google SecOps MCP server. It features:
+- A **mock MCP server** that serves and manages multiple realistic security playbooks.
+- An **automated drift detector** that continuously checks for changes (drift) in playbooks compared to approved baselines.
+- A **web dashboard** for visualizing drift status, viewing reports, and re-running checks with a single click.
 
 ---
 
 ## How It Works
 
-1. **Fetches** the current playbook from the MCP server.
-2. **Compares** it with the baseline version stored locally.
-3. **Alerts** the team if any difference (drift) is detected and generates a detailed report.
+1. **Mock MCP Server** (`mock_server.py`):  
+   Simulates a real MCP server with REST endpoints for playbooks, audit logs, and alerts. Multiple playbooks are available, each representing a real security workflow.
+
+2. **Drift Detector & Dashboard** (`playbook_detector.py`):  
+   - Fetches playbooks from the MCP server.
+   - Compares each to its local baseline.
+   - Generates a drift report and sends an alert if drift is detected.
+   - Provides a dashboard at [http://localhost:5050/](http://localhost:5050/) to view drift status and reports.
 
 ---
 
-## Impact
+## Why This Matters
 
 - **Before:** Manual, infrequent playbook reviews led to outdated automations and missed incidents.
-- **After:** Automated drift detection keeps playbooks aligned and response sharp.
+- **After:** Automated drift detection keeps playbooks aligned and response sharp, with instant visual feedback.
 
 ---
 
 ## Usage Instructions
 
-1. Place your baseline playbook as `baseline_playbook.yaml` in the same folder.
-2. Update the `MCP_SERVER_URL` variable in the script to your MCP server endpoint.
-3. Run the script:
+1. **Start the mock MCP server** in one terminal:
    ```sh
-   python3 playbook_drift_detector.py
+   python3 mock_server.py
    ```
-4. Review the output and the generated drift report for alerts.
+
+2. **Start the drift detector/dashboard** in another terminal:
+   ```sh
+   python3 playbook_detector.py
+   ```
+
+3. **Open the dashboard** in your browser:
+   ```sh
+   $BROWSER http://localhost:5050/
+   ```
+
+4. **Simulate drift:**  
+   Edit a playbook via the server or API, then click "Re-run" on the dashboard to see drift detection in action.
+
+---
+
+## Playbooks Included
+
+- `default`: Login attempts monitoring and alerting
+- `advanced`: Failed login escalation and user blocking
+- `phishing_investigation`: Email parsing and threat intel checks
+- `cloud_storage_audit`: GCP bucket audit and public access alerts
+- `iam_anomaly_detection`: IAM change monitoring and anomaly detection
+- `web_app_firewall_monitor`: WAF log analysis and SQLi blocking
 
 ---
 
 ## Screenshot
 
+_Add your screenshot or video link here!_
+
 ---
 
 ## License
 
-This project is provided for educational purposes only and nothing more to expect from it.
+This project is provided for educational and demonstration purposes only
