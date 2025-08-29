@@ -1,0 +1,13 @@
+steps:
+  - name: list_iam_changes
+    action: gcp_list_iam_changes
+    params:
+      timeframe: 24h
+  - name: detect_unusual_roles
+    action: analyze_roles
+    params:
+      threshold: 2
+  - name: escalate
+    action: send_alert
+    params:
+      channel: identity

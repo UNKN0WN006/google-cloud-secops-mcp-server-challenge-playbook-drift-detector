@@ -1,0 +1,13 @@
+steps:
+  - name: extract_urls
+    action: parse_email
+    params:
+      field: body
+  - name: check_url_reputation
+    action: query_threat_intel
+    params:
+      source: VirusTotal
+  - name: quarantine_email
+    action: quarantine
+    params:
+      mailbox: user

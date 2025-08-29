@@ -1,0 +1,12 @@
+steps:
+  - name: list_buckets
+    action: gcp_list_buckets
+    params: {}
+  - name: check_public_access
+    action: gcp_check_acl
+    params:
+      access: public
+  - name: alert_on_public
+    action: send_alert
+    params:
+      channel: cloudsec

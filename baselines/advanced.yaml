@@ -1,0 +1,14 @@
+steps:
+  - name: check_failed_logins
+    action: query_logs
+    params:
+      source: auth
+      threshold: 10
+  - name: escalate
+    action: send_alert
+    params:
+      channel: secops
+  - name: block_user
+    action: block_account
+    params:
+      user_field: username

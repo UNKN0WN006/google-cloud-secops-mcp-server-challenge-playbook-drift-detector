@@ -1,0 +1,14 @@
+steps:
+  - name: fetch_waf_logs
+    action: query_logs
+    params:
+      source: waf
+      timeframe: 1h
+  - name: detect_sql_injection
+    action: pattern_match
+    params:
+      pattern: sql_injection
+  - name: block_ip
+    action: block_ip
+    params:
+      duration: 3600
