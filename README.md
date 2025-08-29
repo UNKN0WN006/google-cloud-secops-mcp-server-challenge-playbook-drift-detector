@@ -68,10 +68,13 @@ This project demonstrates a real-world security automation scenario using the Go
 ![playbook terminal](screenshots/playbook_detector_terminal.png)
 
 2. mock_server.py file execution in terminal
+![mock_server terminal](screenshots/mock_server_terminal.png)
 
 3. Dashbaord for playbook_detector.py
+![playbook dashboard](screenshots/dashboard_playbook_detector.png)
 
 4. Dashboard for mock_server.py
+![playbook terminal](screenshots/dashboard_mock_server.png)
 
 ---
 
