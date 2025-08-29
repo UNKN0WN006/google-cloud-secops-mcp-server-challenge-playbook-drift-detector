@@ -64,7 +64,14 @@ This project demonstrates a real-world security automation scenario using the Go
 
 ## Screenshot
 
-_Add your screenshot or video link here!_
+1. playbook_detector.py file execution in terminal
+![playbook terminal](/workspaces/google-cloud-secops-mcp-server-challenge-playbook-drift-detector/screenshots/Screenshot 2025-08-29 215316.png)
+
+2. mock_server.py file execution in terminal
+
+3. Dashbaord for playbook_detector.py
+
+4. Dashboard for mock_server.py
 
 ---
 
